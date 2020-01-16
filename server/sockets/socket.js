@@ -16,7 +16,6 @@ io.on('connection', client => {
         if (!data.desktop) return callback({ err: true, message: 'Desktop is necessary' });
         let attendTicket = ticketControl.attendTicket(data.desktop);
         callback(attendTicket);
+        client.broadcast.emit('lastFour', { lastFour: ticketControl.getLastFour() });
     });
-
-    client.broadcast.emit('lastFour', { lastFour: ticketControl.getLastFour() });
 });
