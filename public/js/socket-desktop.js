@@ -23,12 +23,6 @@ document.querySelector('h1').innerText = `Desktop ${ desktop }`;
 
 let label = document.querySelector('small');
 
-// window.onload = (event) => {
-//     socket.emit('attendTicket', { desktop }, (resp) => {
-//         label.innerText = resp === 'No tickets' ? resp : `Ticket ${ resp.number }`;
-//     });
-// };
-
 document.querySelector('button').addEventListener('click', () => {
     socket.emit('attendTicket', { desktop }, (resp) => {
         label.innerText = resp === 'No tickets' ? resp : `Ticket ${ resp.number }`;
